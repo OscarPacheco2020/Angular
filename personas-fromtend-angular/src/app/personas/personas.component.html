@@ -1,0 +1,17 @@
+<div style="text-align: center;">
+  <button style="cursor: pointer;" (click)="irAGregar()">+</button>
+</div>
+<div class="box">
+  <div class="item" *ngFor="let p of personas">
+    <ul>
+      <li>
+        <a [routerLink]="['/personas', p.idPersona ]">
+          {{p.idPersona}} {{p.nombre}} {{p.apellido}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Incrusta el componente de formulario-->
+<router-outlet></router-outlet>
