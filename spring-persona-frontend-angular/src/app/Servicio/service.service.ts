@@ -9,7 +9,7 @@ export class ServiceService {
 
   constructor(private http: HttpClient) { }
 
-  Url = 'http://localhost:8080/java-backend/webservice/peraonas';
+  Url = 'http://localhost:8080/spring-peronas-backend/personas';
 
   getPersonas() {
     return this.http.get<Persona[]>(this.Url);
