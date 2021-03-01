@@ -1,6 +1,7 @@
-import { PersonaService } from './../../service/persona.service';
 import { Component, OnInit } from '@angular/core';
 import { Persona } from 'src/app/model/persona';
+import { PersonaService } from 'src/app/service/persona.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-persona',
@@ -9,17 +10,21 @@ import { Persona } from 'src/app/model/persona';
 })
 export class PersonaComponent implements OnInit {
 
+  displayedColumns = ['idPersona', 'nombre', 'apellido', 'edad', 'pais'];
+
+  dataSource: MatTableDataSource<Persona>;
+
   personas: Persona[];
 
   constructor(private personaService: PersonaService) { }
 
   ngOnInit(): void {
-
     this.personaService.listar()
       .subscribe(
-        data => this.personas = data
+        data => {
+          this.dataSource = new MatTableDataSource(data);
+         }
       );
-
   }
 
 }
