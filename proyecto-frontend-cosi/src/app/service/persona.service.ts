@@ -14,4 +14,7 @@ export class PersonaService {
   listar(){
     return this.http.get<Persona[]>(this.url);
   }
+  eliminar(id: number){
+    return this.http.delete(`${this.url}/${id}`);
+  }
 }
