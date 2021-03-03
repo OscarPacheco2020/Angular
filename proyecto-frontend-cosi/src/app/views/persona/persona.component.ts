@@ -1,9 +1,11 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Persona } from 'src/app/model/persona';
 import { PersonaService } from 'src/app/service/persona.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { PersonaModelComponent } from '../persona-model/persona-model.component';
 
 @Component({
   selector: 'app-persona',
@@ -23,6 +25,11 @@ export class PersonaComponent implements OnInit {
     private personaService: PersonaService) { }
 
   ngOnInit(): void {
+
+    this.personaService.personaActualizar.subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
+    });
+
     this.personaService.listar()
       .subscribe(
         data => {
@@ -49,6 +56,16 @@ export class PersonaComponent implements OnInit {
           );
         }
       }
+    );
+  }
+
+
+  onOpenModal(p?: Persona) {
+    let persona = p != null ? p : new Persona();
+    this.matDialog.open(PersonaModelComponent, {
+      data: persona
+    }
+
     );
   }
 

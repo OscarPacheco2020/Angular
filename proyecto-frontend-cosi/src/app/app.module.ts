@@ -9,12 +9,15 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PersonaComponent } from './views/persona/persona.component';
 import { ConfirmDialogComponent } from './views/persona/confirm-dialog/confirm-dialog.component';
+import { PersonaModelComponent } from './views/persona-model/persona-model.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonaComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    PersonaModelComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { ConfirmDialogComponent } from './views/persona/confirm-dialog/confirm-d
     BrowserAnimationsModule,
     HttpClientModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
