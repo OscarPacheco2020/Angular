@@ -1,11 +1,12 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Persona } from 'src/app/model/persona';
 import { PersonaService } from 'src/app/service/persona.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { PersonaModelComponent } from '../persona-model/persona-model.component';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-persona',
@@ -18,7 +19,7 @@ export class PersonaComponent implements OnInit {
 
   dataSource: MatTableDataSource<Persona>;
 
-  personas: Persona[];
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
     private matDialog: MatDialog,
@@ -28,12 +29,14 @@ export class PersonaComponent implements OnInit {
 
     this.personaService.personaActualizar.subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     });
 
     this.personaService.listar()
       .subscribe(
         data => {
           this.dataSource = new MatTableDataSource(data);
+          this.dataSource.paginator = this.paginator;
         }
       );
   }
@@ -72,4 +75,6 @@ export class PersonaComponent implements OnInit {
   filtrar(valor: string){
     this.dataSource.filter = valor.trim().toLowerCase();
   }
+
+
 }

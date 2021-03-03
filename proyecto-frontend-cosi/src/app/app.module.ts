@@ -11,6 +11,8 @@ import { PersonaComponent } from './views/persona/persona.component';
 import { ConfirmDialogComponent } from './views/persona/confirm-dialog/confirm-dialog.component';
 import { PersonaModelComponent } from './views/persona-model/persona-model.component';
 import { FormsModule } from '@angular/forms';
+import { MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginator';
+import { MatPaginatorEsp } from './resource/mat-paginator';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,12 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     MatTableModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatPaginatorModule
   ],
-  providers: [],
+  providers: [
+    {provide: MatPaginatorIntl, useClass: MatPaginatorEsp}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
