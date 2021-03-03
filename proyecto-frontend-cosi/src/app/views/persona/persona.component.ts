@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { PersonaModelComponent } from '../persona-model/persona-model.component';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-persona',
@@ -20,6 +21,7 @@ export class PersonaComponent implements OnInit {
   dataSource: MatTableDataSource<Persona>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private matDialog: MatDialog,
@@ -30,6 +32,7 @@ export class PersonaComponent implements OnInit {
     this.personaService.personaActualizar.subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
 
     this.personaService.listar()
@@ -37,6 +40,7 @@ export class PersonaComponent implements OnInit {
         data => {
           this.dataSource = new MatTableDataSource(data);
           this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         }
       );
   }

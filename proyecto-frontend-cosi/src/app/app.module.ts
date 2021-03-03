@@ -13,6 +13,7 @@ import { PersonaModelComponent } from './views/persona-model/persona-model.compo
 import { FormsModule } from '@angular/forms';
 import { MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatPaginatorEsp } from './resource/mat-paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MatPaginatorEsp } from './resource/mat-paginator';
     MatTableModule,
     MatDialogModule,
     FormsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [
     {provide: MatPaginatorIntl, useClass: MatPaginatorEsp}
