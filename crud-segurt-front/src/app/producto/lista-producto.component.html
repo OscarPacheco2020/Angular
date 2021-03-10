@@ -4,6 +4,7 @@
       <th scope="col">Id</th>
       <th scope="col">Nombre</th>
       <th scope="col">Precio</th>
+      <th scope="col">Ver</th>
       <th scope="col">Editar</th>
       <th scope="col">Borrar</th>
     </tr>
@@ -13,6 +14,11 @@
       <th scope="row">{{p.idProducto}}</th>
       <td>{{p.nombre}}</td>
       <td> $ {{p.precio}}</td>
+      <td>
+        <button type="button" class="btn btn-outline-primary" routerLink="/detalle/{{p.idProducto}}">
+          <i class="far fa-eye"></i>
+          Ver</button>
+      </td>
       <td>
         <button type="button" class="btn btn-outline-warning" routerLink="/editar/{{p.idProducto}}"> <i class="far fa-edit"></i>
           Editar</button>
