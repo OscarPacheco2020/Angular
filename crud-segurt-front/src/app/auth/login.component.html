@@ -1,1 +1,50 @@
-<p>login works!</p>
+<div class="container" *ngIf="isLogged; else loggedOut">
+  <h2>Ya has iniciado sesion</h2>
+</div>
+
+
+  <ng-template #loggedOut>
+    <div class="container col-md-3">
+      <div class="card">
+        <div class="card-header">
+          <ul class="nav nav-tabs justify-content-center nav-fill">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/login">Loging</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/registro">Crear cuenta</a>
+            </li>
+
+          </ul>
+        </div>
+        <div class="card-body">
+
+          <form class="row g-3"  novalidate #f="ngForm">
+
+            <div class="col-md-12">
+              <label for="inputnombreUsuario" class="form-label">Nombre de Usuario</label>
+              <input type="text" class="form-control" id="nombreUsuario" [(ngModel)]="nombreUsuario" name="nombreUsuario" placeholder="Nombre de Usuario"
+                required>
+            </div>
+
+            <div class="col-md-12">
+              <label for="inputPassword" class="form-label">Contraseñan</label>
+              <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" placeholder="Password"
+                required>
+            </div>
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button type="button" class="btn btn-outline-success" [disabled]="!f.valid" (click)="onLogin()">
+                Entrar
+              </button>
+            </div>
+          </form>
+
+          <div *ngIf="isLoginFail" class="alert alert-danger mt-3"> Error en login:  {{this.errMsj}}</div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+
+
