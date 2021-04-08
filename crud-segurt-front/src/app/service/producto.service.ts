@@ -17,11 +17,11 @@ export class ProductoService {
   }
 
   public detail(id: number): Observable<Producto>{
-    return this.httpClient.get<Producto> (this.url + `/${id}`);
+    return this.httpClient.get<Producto> (this.url + `${id}`);
   }
 
   public detailName(nombre: string): Observable<Producto>{
-    return this.httpClient.get<Producto> (this.url + `/name/${nombre}`);
+    return this.httpClient.get<Producto> (this.url + `name/${nombre}`);
   }
 
   public save(procuto: Producto): Observable<any>{
@@ -29,10 +29,10 @@ export class ProductoService {
   }
 
   public updata(id: number, procuto: Producto): Observable<any>{
-    return this.httpClient.put<any>(this.url + `/${id}`, procuto);
+    return this.httpClient.put<any>(this.url + `${id}`, procuto);
   }
 
   public delete(id: number): Observable<any>{
-    return this.httpClient.delete<any>(this.url + `/${id}`);
+    return this.httpClient.delete<any>(this.url + `${id}`);
   }
 }

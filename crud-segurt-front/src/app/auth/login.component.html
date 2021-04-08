@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <div class="container" *ngIf="isLogged; else loggedOut">
   <h2>Ya has iniciado sesion</h2>
 </div>
@@ -9,7 +10,8 @@
         <div class="card-header">
           <ul class="nav nav-tabs justify-content-center nav-fill">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" routerLink="/login">Loging</a>
+              <a class="nav-link active" aria-current="page" routerLink="/login">
+                Loging</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLink="/registro">Crear cuenta</a>
@@ -35,6 +37,7 @@
 
             <div class="d-grid gap-2 col-6 mx-auto">
               <button type="button" class="btn btn-outline-success" [disabled]="!f.valid" (click)="onLogin()">
+                <i class="fas fa-sign-in-alt"></i>
                 Entrar
               </button>
             </div>

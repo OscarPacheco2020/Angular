@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <div class="container d-grid gap-2 col-6 mx-auto" *ngIf="producto">
 
   <form class="row g-3"  novalidate #f="ngForm">
@@ -31,6 +32,11 @@
       <button type="button" class="btn btn-outline-success" [disabled]="!f.valid" (click)="onUpdate()">
         <i class="far fa-save"></i>
         Actualizar
+      </button>
+
+      <button type="button" class="btn btn-outline-primary" (click)="volver()">
+        <i class="fas fa-long-arrow-alt-left"></i>
+        Volver
       </button>
     </div>
   </form>
