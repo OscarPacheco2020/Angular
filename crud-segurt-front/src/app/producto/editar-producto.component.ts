@@ -45,13 +45,13 @@ export class EditarProductoComponent implements OnInit {
           this.toastr.success('Producto Actualizado', 'Ok', {
             timeOut: 3000, positionClass: 'toast-top-center'
           });
-          this.router.navigate(['/']);
+          this.router.navigate(['/lista']);
         },
         error => {
           this.toastr.error(error.error.mensaje, 'Fail', {
             timeOut: 3000, positionClass: 'toast-top-center'
           });
-          this.router.navigate(['/']);
+         // this.router.navigate(['/lista']);
         }
       );
     } else {

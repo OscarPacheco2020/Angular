@@ -35,13 +35,13 @@ export class NuevoProductoComponent implements OnInit {
           this.toastr.success('Producto Creado', 'Ok', {
             timeOut: 3000, positionClass: 'toast-top-center'
           });
-          this.router.navigate(['/']);
+          this.router.navigate(['/lista']);
         },
         error => {
           this.toastr.error(error.error.mensaje, 'Fail', {
             timeOut: 3000, positionClass: 'toast-top-center'
           });
-          this.router.navigate(['/']);
+          this.router.navigate(['/lista']);
         }
       );
     } else {

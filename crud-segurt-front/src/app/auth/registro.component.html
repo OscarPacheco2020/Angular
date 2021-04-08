@@ -21,6 +21,39 @@
           </ul>
         </div>
         <div class="card-body">
+          <form class="row g-3"  novalidate #f="ngForm">
+
+            <div class="col-md-12">
+              <label for="inputnombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre" name="nombre" placeholder="Nombre"
+                required>
+            </div>
+
+            <div class="col-md-12">
+              <label for="inputnombreUsuario" class="form-label">Nombre de Usuario</label>
+              <input type="text" class="form-control" id="nombreUsuario" [(ngModel)]="nombreUsuario" name="nombreUsuario" placeholder="Nombre de Usuario"
+                required>
+            </div>
+
+            <div class="col-md-12">
+              <label for="inputPassword" class="form-label">Contraseñan</label>
+              <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" placeholder="Password"
+                required>
+            </div>
+
+            <div class="col-md-12">
+              <label for="inputEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" placeholder="Email"
+                required>
+            </div>
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button type="button" class="btn btn-outline-success" [disabled]="!f.valid" (click)="onREgistar()">
+                <i class="fas fa-sign-in-alt"></i>
+                Crear Cuenta
+              </button>
+            </div>
+          </form>
 
         </div>
       </div>
