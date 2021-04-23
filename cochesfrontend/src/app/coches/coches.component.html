@@ -1,0 +1,25 @@
+<div class="container mb-3">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Marca</th>
+                <th scope="col">Modelo</th>
+                <th scope="col">Versión</th>
+                <th scope="col">Cambio</th>
+                <th scope="col">Color</th>
+                <th scope="col">Kilómetros</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let coche of coches">
+                <td>{{coche.modelo.marca.nombre}}</td>
+                <td>{{coche.modelo.nombre}}</td>
+                <td>{{coche.version}}</td>
+                <td *ngIf="coche.cambio">Automático</td>
+                <td *ngIf="!coche.cambio">Manual</td>
+                <td>{{coche.color}}</td>
+                <td>{{coche.km}} km</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
